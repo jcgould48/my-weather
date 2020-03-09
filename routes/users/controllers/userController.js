@@ -98,7 +98,7 @@ getWeather: (req, res) => {
 
     if(req.isAuthenticated()){
     const apiKey = process.env.API_KEY
-    const url = `https://api.openweathermap.org/data/2.5/forecast/daily?10027,us&appid=${apiKey}&units=imperial`;
+    const url = `https://api.openweathermap.org/data/2.5/forecast/daily?zip=10027,us&appid=${apiKey}&units=imperial`;
 
     fetch(url)
     .then((weather) => weather.json())

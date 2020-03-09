@@ -1,3 +1,7 @@
+**Welcome to the My_Weather App!
+
+Description:  This app will tell you all you need to know about your local weather based off of the the zip code associated with your profile.  Register a profile and give it a try!
+
 Routes:
 
 Main Page - '/'
