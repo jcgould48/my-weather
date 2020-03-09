@@ -1,21 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <% include ../partials/head %> 
-    <title>My Weather</title>
-    
-  </head>
-  <body>
-    <% include ../partials/nav %> 
-    <div id="container" class="fluid">
-      <main role="main">
-        <% include ../partials/jumbotron %> 
-        <header>Weather Forecast</header>
-        <%= zip %> 
-        </div>
-      </main>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/weather.css" type="text/css">
+    <title>Document</title>
+</head>
+<body>
+  <% include ../partials/nav %> 
+  <div id="container" class="fluid">
+    <main role="main">
+      <% include ../partials/jumbotron %> 
+      </div>
+    <div class="container">
+      <h1 class="city"><%= weather.name %> </h1>
+      <hr />
+      <p>
+          <%= weather.weather[0].main %>     <br />
+          <%= weather.weather[0].description %> 
+      </p>
+      <p>
+          Temperature:<%=weather.main.temp %> 
+          Feels like <%= weather.main.feels_like %> 
+        </p> 
+      </p>
+       
     </div>
-<% include ../partials/footer %> 
+    <% include ../partials/footer %> 
 <% include ../partials/scripts %> 
-  </body>
+</body>
 </html>

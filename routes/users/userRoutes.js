@@ -18,15 +18,13 @@ router.get('/', function(req, res, next) {
 
 
 
-router.get('/home2',(req, res, next)=>
-
-
-{if(req.isAuthenticated()){
-  return res.render('main/home2', {errors: req.flash('errors')})
-} else {
-  return res.send('Unauthorized')
-}
-})
+// router.get('/home2',(req, res, next)=>
+// {if(req.isAuthenticated()){
+//   return res.render('main/home2', {errors: req.flash('errors')})
+// } else {
+//   return res.send('Unauthorized')
+// }
+// })
 
 router.get('/home2', userController.getWeather);
 

@@ -2,6 +2,7 @@ const User = require('../models/User');
 const{validationResult} = require('express-validator')
 const faker = require('faker');
 const bcrypt = require('bcryptjs')
+const fetch = require('node-fetch')
 
 module.exports = {
 //registers new users to database
@@ -94,15 +95,23 @@ module.exports = {
 },
 
 getWeather: (req, res) => {
+
+    if(req.isAuthenticated()){
     const apiKey = process.env.API_KEY
-    const url = `api.openweathermap.org/data/2.5/forecast/daily?zip=${zip},us&appid=${apiKey}`;
+    const url = `https://api.openweathermap.org/data/2.5/forecast/daily?10027,us&appid=${apiKey}&units=imperial`;
 
     fetch(url)
-        .then((res) => res.json())
-        .then((movies) => {
-            res.render('main/home2', { movies, img })
-        })
-        .catch((err) => console.log(err))
+    .then((weather) => weather.json())
+    .then((weather) => {
+        console.log(weather)
+        console.log(apiKey)
+      return res.render('main/home2',{weather})
+    })
+    .catch((err) => console.log(err))
+   
+}else {
+    return res.send('Unauthorized')}
 }
+
 
 }
