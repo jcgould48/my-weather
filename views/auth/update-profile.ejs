@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%include ../partials/head %> 
+    <title>SignIn-My Weather</title>
+  </head>
+  <body>
+    <% include ../partials/nav %>
+    <div class="container">
+      <div class="row">
+        <div
+          class="
+          col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3 my-form"
+        >
+       
+            <h2>Update Profile:</h2>
+            <br />
+            <hr class="colorgraph" />
+            <form role="form" method="POST" action="/api/users/update-profile?_method=PUT">
+            <fieldset>
+                <img style= "border-radius: 50%" src="<%= user.profile.picture %> " alt="profile">
+                <div class="form-group">
+                </br>
+                <label for="name">Name:</label>
+                <input 
+                type="text" 
+                name="name" 
+                id="name" 
+                class="form-control input-lg"
+                value="<%= user.profile.name %> "
+                />    
+                </div>
+                <div class="form-group">
+                </br>
+                <label for="email">Email:</label>
+                <input 
+                type="text" 
+                name="email" 
+                id="email" 
+                class="form-control input-lg"
+                value="<%= user.email %> "
+                />    
+                </div>
+                <div class="form-group">
+                </br>
+                <label for="zip">Zip Code:</label>
+                <input 
+                type="text" 
+                name="zip" 
+                id="zip" 
+                class="form-control input-lg"
+                placeholder="Zip Code"
+                value="<%= user.zip %> "
+                />    
+                </div>
+                
+            </fieldset>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <input
+                  type="submit"
+                  class="btn btn-lg btn-success btn-block"
+                  value="Update Profile"
+                />
+              </div>
+            </form>
+              <hr class="colorgraph" />
+              <form 
+              role="form"
+              method="POST"
+              action= "/api/users/update-password?_method=PUT">
+              <fieldset>
+                <h5>Change Password:</h5>
+                <div class="form-group">
+                </br>
+                <label for="oldPassword">Old Password:</label>
+                <input 
+                type="password" 
+                name="oldPassword" 
+                id="oldPassword" 
+                class="form-control input-lg"
+                placeholder="Old Password"
+                />    
+                </div> <div class="form-group">
+                </br>
+                <label for="newPassword">New Password:</label>
+                <input 
+                type="password" 
+                name="newPassword" 
+                id="newPassword" 
+                class="form-control input-lg"
+                placeholder="New Password"
+                />    
+                </div> <div class="form-group">
+                </br>
+                <label for="repeatNewPassword">Repeat New Password:</label>
+                <input 
+                type="password" 
+                name="repeatNewPassword" 
+                id="repeatNewPassword" 
+                class="form-control input-lg"
+                placeholder="Repeat New Password "
+                />    
+                </div>
+              </fieldset>
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <input
+                  type="submit"
+                  class="btn btn-lg btn-success btn-block"
+                  value="Update Password"
+                />
+
+              </div>
+              </form>
+              <hr class="colorgraph" />
+              <div class="row">
+                
+              </div>
+        </div>
+      </div>
+    </div>
+    <% include ../partials/scripts %>
+  </body>
+</html>
