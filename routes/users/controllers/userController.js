@@ -104,7 +104,6 @@ getWeather: (req, res) => {
     .then((weather) => weather.json())
     .then((weather) => {
         console.log(weather)
-        console.log(apiKey)
       return res.render('main/home2',{weather})
     })
     .catch((err) => console.log(err))
